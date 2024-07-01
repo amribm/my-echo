@@ -1,4 +1,5 @@
 use clap::{Arg, ArgAction, Command};
+use color_eyre::owo_colors::OwoColorize;
 use std::{
     env,
     io::{self, Write},
@@ -23,9 +24,9 @@ fn write_args(no_newline: bool, args: Vec<String>) -> io::Result<()> {
     let mut stdout = io::stdout();
 
     if !no_newline {
-        writeln!(stdout, "{}", args.join(" "))?;
+        writeln!(stdout, "{}", args.join(" ").blue())?;
     } else {
-        write!(stdout, "{}", args.join(" "))?;
+        write!(stdout, "{}", args.join(" ").blue())?;
     }
 
     Ok(())
